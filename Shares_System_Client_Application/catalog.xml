@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:13336/Shares_Services/Shares_Services?wsdl" uri="xml-resources/web-service-references/Shares_Services/wsdl/localhost_13336/Shares_Services/Shares_Services.wsdl"/>
+    <system systemId="http://localhost:13336/Shares_Services/Shares_Services?xsd=1" uri="xml-resources/web-service-references/Shares_Services/wsdl/localhost_13336/Shares_Services/Shares_Services.xsd_1.xsd"/>
+    <system systemId="file:/C:/Users/user/Documents/MEGAsync/University%20(Main%20Copy)/Year%203%20Work/COMP30231%20-%20SSC/Coursework/Shares_System_Client_Application/build/classes/shares_system_client_application/Current_Shares.xsd" uri="xml-resources/jaxb/Shares_Data/Current_Shares.xsd"/>
+    <system systemId="file:/C:/Users/user/Documents/MEGAsync/University%20(Main%20Copy)/Year%203%20Work/COMP30231%20-%20SSC/Coursework/Shares_System_Client_Application/../SSC_Coursework/Shares_System/src/java/org/me/shares/Current_Shares.xsd" uri="xml-resources/jaxb/Shares_Data/Current_Shares.xsd"/>
+    <system systemId="file:/C:/Users/user/Documents/MEGAsync/University%20(Main%20Copy)/Year%203%20Work/COMP30231%20-%20SSC/Coursework/Shares_System_Client_Application/src/shares_system_client_application/Current_Shares.xsd" uri="xml-resources/jaxb/Shares_Data/Current_Shares.xsd"/>
+</catalog>

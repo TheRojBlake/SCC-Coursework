@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xml.netbeans.org/schema/Current_Shares"
+    xmlns:tns="http://xml.netbeans.org/schema/Current_Shares"
+    elementFormDefault="qualified">
+    
+    <xsd:element name="Current_Shares">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Company_Name" type="xsd:string"/>             
+                <xsd:element name="Company_Symbol" type="xsd:string"/>               
+                <xsd:element name="Num_Of_Shares" type="xsd:int"/>
+                
+                <xsd:element name="Share_Price">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="Currency" type="xsd:string"/>
+                            <xsd:element name="value" type="xsd:float"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                          
+                <xsd:element name="Last_Share_Update" type="xsd:date"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element> 
+</xsd:schema>
+
+<!-- This is how to comment code out -->
