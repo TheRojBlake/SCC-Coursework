@@ -1,3 +1,6 @@
+<!-- JAX-B bindings is a great tool when it comes to customizing the generation 
+of Java classes from a set of XML schema -->
+
 <?xml version="1.0" encoding="UTF-8"?>
 
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
@@ -26,5 +29,3 @@
         </xsd:complexType>
     </xsd:element> 
 </xsd:schema>
-
-<!-- This is how to comment code out -->

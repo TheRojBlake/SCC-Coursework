@@ -1,3 +1,6 @@
+<!--The jax-ws-catalog.xml file contains the XML catalog(s) that are defined in 
+the external XML catalog file(s) and/or embedded in the build.xml file. -->
+
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:13336/Shares_Services/Shares_Services?wsdl" uri="wsdl/localhost_13336/Shares_Services/Shares_Services.wsdl"/>

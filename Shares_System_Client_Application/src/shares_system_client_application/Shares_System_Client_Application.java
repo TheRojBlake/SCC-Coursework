@@ -1,3 +1,5 @@
+//Client Application that users can see and interact with. 
+
 package shares_system_client_application;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,17 +9,19 @@ import java.time.Instant;
 import java.time.LocalDateTime;    
 import java.time.ZoneId;
 import java.util.Date;
-import javax.xml.bind.annotation.XmlRootElement;
+import static java.util.Spliterators.iterator;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-@XmlRootElement
 public class Shares_System_Client_Application
 {
     public static void main(String[] args) throws FileNotFoundException, IOException 
     {
+        //Creates instance of binded XML file.
+        //Shares_Info = Package name
+        //CurrentShares = bound XML file 
         Shares_Info.CurrentShares quickXML = new Shares_Info.CurrentShares();
-        
+                
         quickXML.setCompanyName("test co");
         quickXML.setCompanySymbol("DOLLAR");
         
@@ -49,22 +53,44 @@ public class Shares_System_Client_Application
                 
         quickXML2.setValue(123.4f);
         
+        //Marshelling code
         try 
-        {            
+        {   
+            //The JAXBContext class provides the client's entry point to the JAXB API
             javax.xml.bind.JAXBContext jaxbCtx = javax.xml.bind.JAXBContext.newInstance(quickXML.getClass().getPackage().getName());
+            
+            //The Marshaller class is responsible for governing the process of 
+            //serializing Java content trees back into XML data
             javax.xml.bind.Marshaller marshaller = jaxbCtx.createMarshaller();
+            
+            //Specified encoding
             marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_ENCODING, "UTF-8"); //NOI18N
+            
+            //The name of the property used to specify whether or not the 
+            //marshalled XML data is formatted with linefeeds and indentation.
             marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            marshaller.marshal(quickXML, System.out);
-            marshaller.marshal(quickXML2, System.out);
-            OutputStream os = new FileOutputStream("Share_Data.xml"); //Outputs data to file
-            os.close();
+            
+            //marshaller.marshal(quickXML, System.out);
+            //marshaller.marshal(quickXML2, System.out);
+            
+            /*
+            FileOutputStream fos = new FileOutputStream("Shares.xml"); 
+            while (iterator.hasNext()) 
+            { 
+                Shares_Info.CurrentShares student = (Shares_Info.CurrentShares) iterator.next(); 
+                marshaller.marshal(student, fos);
+            }
+            */
+            
+            //OutputStream os = new FileOutputStream("nosferatu.xml"); //Outputs data to file
+            //os.close();
         } 
+        
+ 
         
         catch (javax.xml.bind.JAXBException ex) 
         {            
             java.util.logging.Logger.getLogger("global").log(java.util.logging.Level.SEVERE, null, ex); //NOI18N
-        }             
-        
+        }           
     }
 }
