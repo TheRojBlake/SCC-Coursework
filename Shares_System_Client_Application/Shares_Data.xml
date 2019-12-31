@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Current_Shares xmlns="http://xml.netbeans.org/schema/Current_Shares">
+    <Company_Name>test co</Company_Name>
+    <Company_Symbol>DOLLAR</Company_Symbol>
+    <Num_Of_Shares>43000</Num_Of_Shares>
+    <Share_Price>
+        <Currency>Dollar</Currency>
+        <value>123.4</value>
+    </Share_Price>
+    <Last_Share_Update>2019-12-31</Last_Share_Update>
+</Current_Shares>

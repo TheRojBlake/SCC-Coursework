@@ -1,15 +1,13 @@
 //Client Application that users can see and interact with. 
 
 package shares_system_client_application;
+import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.time.Instant;
 import java.time.LocalDateTime;    
 import java.time.ZoneId;
 import java.util.Date;
-import static java.util.Spliterators.iterator;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
@@ -19,7 +17,7 @@ public class Shares_System_Client_Application
     {
         //Creates instance of binded XML file.
         //Shares_Info = Package name
-        //CurrentShares = bound XML file 
+        //CurrentShares = bound XML file
         Shares_Info.CurrentShares quickXML = new Shares_Info.CurrentShares();
                 
         quickXML.setCompanyName("test co");
@@ -28,9 +26,7 @@ public class Shares_System_Client_Application
         Date now = new Date();
         Instant current = now.toInstant();
         LocalDateTime ldt = LocalDateTime.ofInstant(current, ZoneId.systemDefault());
-        
-        System.out.println(ldt);
-        
+                
         String dateTimeString = ldt.toString();
 
         try
@@ -53,6 +49,9 @@ public class Shares_System_Client_Application
                 
         quickXML2.setValue(123.4f);
         
+        quickXML.setSharePrice(quickXML2);
+       
+        
         //Marshelling code
         try 
         {   
@@ -68,26 +67,13 @@ public class Shares_System_Client_Application
             
             //The name of the property used to specify whether or not the 
             //marshalled XML data is formatted with linefeeds and indentation.
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);          
             
-            //marshaller.marshal(quickXML, System.out);
-            //marshaller.marshal(quickXML2, System.out);
+            File Shares_File = new File("Shares_Data.xml");
+
+            marshaller.marshal(quickXML, Shares_File);
+        }
             
-            /*
-            FileOutputStream fos = new FileOutputStream("Shares.xml"); 
-            while (iterator.hasNext()) 
-            { 
-                Shares_Info.CurrentShares student = (Shares_Info.CurrentShares) iterator.next(); 
-                marshaller.marshal(student, fos);
-            }
-            */
-            
-            //OutputStream os = new FileOutputStream("nosferatu.xml"); //Outputs data to file
-            //os.close();
-        } 
-        
- 
-        
         catch (javax.xml.bind.JAXBException ex) 
         {            
             java.util.logging.Logger.getLogger("global").log(java.util.logging.Level.SEVERE, null, ex); //NOI18N
