@@ -61,24 +61,24 @@ public class Shares_System_Client_Application
         {   
             //The JAXBContext class provides the client's entry point to the JAXB API
             javax.xml.bind.JAXBContext jaxbCtx = javax.xml.bind.JAXBContext.newInstance(quickXML.getClass().getPackage().getName());
-            
+
             //The Marshaller class is responsible for governing the process of 
             //serializing Java content trees back into XML data
             javax.xml.bind.Marshaller marshaller = jaxbCtx.createMarshaller();
-            
+
             //Specified encoding
             marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_ENCODING, "UTF-8"); //NOI18N
-            
+
             //The name of the property used to specify whether or not the 
             //marshalled XML data is formatted with linefeeds and indentation.
             marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);                     
-            
+
             marshaller.marshal(quickXML, Shares_File);
         }
-            
+
         catch (javax.xml.bind.JAXBException ex) 
         {            
             java.util.logging.Logger.getLogger("global").log(java.util.logging.Level.SEVERE, null, ex); //NOI18N
-        }           
+        }
     }
 }
