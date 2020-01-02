@@ -26,5 +26,3 @@
         </xsd:complexType>
     </xsd:element> 
 </xsd:schema>
-
-<!-- This is how to comment code out -->

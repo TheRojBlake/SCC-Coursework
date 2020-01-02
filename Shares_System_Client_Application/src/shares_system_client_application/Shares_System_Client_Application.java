@@ -8,20 +8,24 @@ import java.time.Instant;
 import java.time.LocalDateTime;    
 import java.time.ZoneId;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+@XmlRootElement(name = "Shares")
 public class Shares_System_Client_Application
 {
     public static void main(String[] args) throws FileNotFoundException, IOException 
     {
+        File Shares_File = new File("Shares_Data.xml");
+        
         //Creates instance of binded XML file.
         //Shares_Info = Package name
         //CurrentShares = bound XML file
         Shares_Info.CurrentShares quickXML = new Shares_Info.CurrentShares();
                 
         quickXML.setCompanyName("test co");
-        quickXML.setCompanySymbol("DOLLAR");
+        quickXML.setCompanySymbol("POUND");
         
         Date now = new Date();
         Instant current = now.toInstant();
@@ -67,10 +71,8 @@ public class Shares_System_Client_Application
             
             //The name of the property used to specify whether or not the 
             //marshalled XML data is formatted with linefeeds and indentation.
-            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);          
+            marshaller.setProperty(javax.xml.bind.Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);                     
             
-            File Shares_File = new File("Shares_Data.xml");
-
             marshaller.marshal(quickXML, Shares_File);
         }
             
