@@ -19,7 +19,7 @@ public class Shares_System_Client_Application
     {
         Shares_Add_Page Share_Create = new Shares_Add_Page();
         Share_Create.setVisible(true);
-        
+            
         /*
         File Shares_File = new File("Shares_Data.xml");
         

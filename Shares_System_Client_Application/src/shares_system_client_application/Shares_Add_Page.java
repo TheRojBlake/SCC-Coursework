@@ -1,5 +1,6 @@
 package shares_system_client_application;
 
+import java.awt.event.*;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -16,7 +17,6 @@ public class Shares_Add_Page extends javax.swing.JFrame
     {
 
         jLabel5 = new javax.swing.JLabel();
-        Share_Value_Text_Field = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         Save_Record_Button = new javax.swing.JButton();
@@ -30,6 +30,7 @@ public class Shares_Add_Page extends javax.swing.JFrame
         jLabel4 = new javax.swing.JLabel();
         Shares_Currency_Text_Field = new javax.swing.JTextField();
         Share_Update_Date_Chooser = new com.toedter.calendar.JCalendar();
+        Share_Price_Value_Text_Field = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,6 +51,14 @@ public class Shares_Add_Page extends javax.swing.JFrame
 
         Reset_Page_Button.setText("Reset Page");
 
+        Company_Symbol_Text_Field.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                Company_Symbol_Text_FieldKeyTyped(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel1.setText("Shares Entry");
 
@@ -57,7 +66,39 @@ public class Shares_Add_Page extends javax.swing.JFrame
 
         jLabel3.setText("Please enter company symbol:");
 
+        Company_Name_Text_Field.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                Company_Name_Text_FieldKeyTyped(evt);
+            }
+        });
+
+        Share_Amount_Text_Field.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                Share_Amount_Text_FieldKeyTyped(evt);
+            }
+        });
+
         jLabel4.setText("Please enter num of shares:");
+
+        Shares_Currency_Text_Field.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                Shares_Currency_Text_FieldKeyTyped(evt);
+            }
+        });
+
+        Share_Price_Value_Text_Field.addKeyListener(new java.awt.event.KeyAdapter()
+        {
+            public void keyTyped(java.awt.event.KeyEvent evt)
+            {
+                Share_Price_Value_Text_FieldKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,18 +126,17 @@ public class Shares_Add_Page extends javax.swing.JFrame
                         .addComponent(Shares_Currency_Text_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel6)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(Save_Record_Button)
                                 .addGap(82, 82, 82)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Share_Value_Text_Field, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(63, 63, 63)
                                 .addComponent(Reset_Page_Button)
-                                .addGap(74, 74, 74))))
+                                .addGap(74, 74, 74))
+                            .addComponent(Share_Price_Value_Text_Field, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addComponent(jLabel7)
@@ -130,10 +170,10 @@ public class Shares_Add_Page extends javax.swing.JFrame
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(Shares_Currency_Text_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
-                    .addComponent(Share_Value_Text_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Share_Price_Value_Text_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -142,7 +182,7 @@ public class Shares_Add_Page extends javax.swing.JFrame
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(Share_Update_Date_Chooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Save_Record_Button)
                     .addComponent(Reset_Page_Button))
@@ -158,7 +198,7 @@ public class Shares_Add_Page extends javax.swing.JFrame
                 (Company_Symbol_Text_Field.getText().isEmpty() == true) ||
                 (Share_Amount_Text_Field.getText().isEmpty() == true) || 
                 (Shares_Currency_Text_Field.getText().isEmpty() == true) ||
-                (Share_Value_Text_Field.getText().isEmpty() == true))
+                (Share_Price_Value_Text_Field.getText().isEmpty() == true))
         {
             String titleBar = "save button";
             String infoMessage = "One of your strings are empty. Please correct this and try again.";
@@ -170,9 +210,87 @@ public class Shares_Add_Page extends javax.swing.JFrame
             Date date = Share_Update_Date_Chooser.getDate();
             
             String titleBar = "save button";
-            JOptionPane.showMessageDialog(null, date, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);          
+            JOptionPane.showMessageDialog(null, date, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);        
+            
+            //Marshalling data will go here
         }
     }//GEN-LAST:event_Save_Record_ButtonActionPerformed
+
+    private void Company_Name_Text_FieldKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_Company_Name_Text_FieldKeyTyped
+    {//GEN-HEADEREND:event_Company_Name_Text_FieldKeyTyped
+        String Entered_Text =  Company_Name_Text_Field.getText();
+        int Text_Length = Entered_Text.length();
+        
+        char c = evt.getKeyChar();       
+        
+        if (!(Character.isLetter(c)) || (c==KeyEvent.VK_BACK_SPACE) || 
+                (c==KeyEvent.VK_DELETE) || (Text_Length >= 30))
+        {
+            evt.consume();
+        }         
+    }//GEN-LAST:event_Company_Name_Text_FieldKeyTyped
+
+    private void Company_Symbol_Text_FieldKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_Company_Symbol_Text_FieldKeyTyped
+    {//GEN-HEADEREND:event_Company_Symbol_Text_FieldKeyTyped
+        String Entered_Text =  Company_Name_Text_Field.getText();
+        int Text_Length = Entered_Text.length();
+        
+        char c = evt.getKeyChar();       
+        
+        if (!(Character.isLetter(c)) || (c==KeyEvent.VK_BACK_SPACE) || 
+                (c==KeyEvent.VK_DELETE) || (Text_Length >= 30))
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_Company_Symbol_Text_FieldKeyTyped
+
+    private void Share_Amount_Text_FieldKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_Share_Amount_Text_FieldKeyTyped
+    {//GEN-HEADEREND:event_Share_Amount_Text_FieldKeyTyped
+        char c = evt.getKeyChar();
+        
+        if (!(Character.isDigit(c)) || (c==KeyEvent.VK_BACK_SPACE) || 
+                (c==KeyEvent.VK_DELETE))
+        {
+            evt.consume();           
+        }
+        
+        String Entered_Text =  Share_Amount_Text_Field.getText();
+        int Text_Length = Entered_Text.length();
+        
+        if (Text_Length >= 5)
+        {
+            evt.consume();
+        } 
+        
+    }//GEN-LAST:event_Share_Amount_Text_FieldKeyTyped
+
+    private void Shares_Currency_Text_FieldKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_Shares_Currency_Text_FieldKeyTyped
+    {//GEN-HEADEREND:event_Shares_Currency_Text_FieldKeyTyped
+        String Entered_Text =  Shares_Currency_Text_Field.getText();
+        int Text_Length = Entered_Text.length();
+        
+        char c = evt.getKeyChar();       
+        
+        if (!(Character.isLetter(c)) || (c==KeyEvent.VK_BACK_SPACE) || 
+                (c==KeyEvent.VK_DELETE) || (Text_Length >= 20))
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_Shares_Currency_Text_FieldKeyTyped
+
+    private void Share_Price_Value_Text_FieldKeyTyped(java.awt.event.KeyEvent evt)//GEN-FIRST:event_Share_Price_Value_Text_FieldKeyTyped
+    {//GEN-HEADEREND:event_Share_Price_Value_Text_FieldKeyTyped
+        String Entered_Text =  Share_Price_Value_Text_Field.getText();
+        int Text_Length = Entered_Text.length();
+        
+        char c = evt.getKeyChar();       
+        
+        if (Character.isLetter(c) || (c==KeyEvent.VK_BACK_SPACE) || 
+                (c==KeyEvent.VK_DELETE) || (Text_Length >= 8))
+        {
+            evt.consume();
+        }
+    }//GEN-LAST:event_Share_Price_Value_Text_FieldKeyTyped
 
     public static void main(String args[])
     {
@@ -215,8 +333,8 @@ public class Shares_Add_Page extends javax.swing.JFrame
     private javax.swing.JButton Reset_Page_Button;
     private javax.swing.JButton Save_Record_Button;
     private javax.swing.JTextField Share_Amount_Text_Field;
+    private javax.swing.JFormattedTextField Share_Price_Value_Text_Field;
     private com.toedter.calendar.JCalendar Share_Update_Date_Chooser;
-    private javax.swing.JTextField Share_Value_Text_Field;
     private javax.swing.JTextField Shares_Currency_Text_Field;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
