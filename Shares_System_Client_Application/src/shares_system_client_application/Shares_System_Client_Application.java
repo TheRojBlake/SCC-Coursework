@@ -12,11 +12,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
-@XmlRootElement(name = "Shares")
+//@XmlRootElement(name = "Shares")
 public class Shares_System_Client_Application
 {
     public static void main(String[] args) throws FileNotFoundException, IOException 
     {
+        Shares_Add_Page Share_Create = new Shares_Add_Page();
+        Share_Create.setVisible(true);
+        
+        /*
         File Shares_File = new File("Shares_Data.xml");
         
         //Creates instance of binded XML file.
@@ -80,5 +84,6 @@ public class Shares_System_Client_Application
         {            
             java.util.logging.Logger.getLogger("global").log(java.util.logging.Level.SEVERE, null, ex); //NOI18N
         }
+        */
     }
 }
