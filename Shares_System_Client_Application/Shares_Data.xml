@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Current_Shares xmlns="http://xml.netbeans.org/schema/Current_Shares">
-    <Company_Name>test co</Company_Name>
-    <Company_Symbol>POUND</Company_Symbol>
-    <Num_Of_Shares>43000</Num_Of_Shares>
-    <Share_Price>
-        <Currency>Dollar</Currency>
-        <value>123.4</value>
-    </Share_Price>
-    <Last_Share_Update>2020-01-02</Last_Share_Update>
-</Current_Shares>
+<ns2:sharesList xmlns:ns2="de.vogella.xml.jaxb.model">
+    <share>
+        <title>testy</title>
+        <companySymbol>testo</companySymbol>
+        <numOfShares>1532</numOfShares>
+        <lastShareUpdate>2020-01-01T15:17:41.411Z</lastShareUpdate>
+        <sharePrice>
+            <currency>pound</currency>
+            <value>12.5</value>
+        </sharePrice>
+    </share>
+    <share>
+        <title>comp</title>
+        <companySymbol>comp</companySymbol>
+        <numOfShares>12345</numOfShares>
+        <lastShareUpdate>2020-01-01T15:13:24.715Z</lastShareUpdate>
+        <sharePrice>
+            <currency>dollar</currency>
+            <value>12.3</value>
+        </sharePrice>
+    </share>
+</ns2:sharesList>

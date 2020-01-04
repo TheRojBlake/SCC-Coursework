@@ -1,8 +1,26 @@
 package shares_system_client_application;
 
 import java.awt.event.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+import de.vogella.xml.jaxb.model.Shares;
+import de.vogella.xml.jaxb.model.SharesList;
+import de.vogella.xml.jaxb.model.SharePrice;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
 
 public class Shares_Add_Page extends javax.swing.JFrame
 {
@@ -206,13 +224,61 @@ public class Shares_Add_Page extends javax.swing.JFrame
         }
         
         else
-        {
+        {                                         
+            File Shares_File = new File("Shares_Data.xml");
+            
+            ArrayList<Shares> shareList = new ArrayList<Shares>();
+
+            // create books
+            Shares share1 = new Shares();
+            SharePrice share1_2 = new SharePrice();
+            share1.setCompanyName(Company_Name_Text_Field.getText());
+            share1.setCompanySymbol(Company_Symbol_Text_Field.getText());
+            
+            int nos = Integer.parseInt(Share_Amount_Text_Field.getText());
+            share1.setNumOfShares(nos);
+
             Date date = Share_Update_Date_Chooser.getDate();
+            share1.setLastShareUpdate(date);
             
-            String titleBar = "save button";
-            JOptionPane.showMessageDialog(null, date, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);        
+            share1_2.setCurrency(Shares_Currency_Text_Field.getText());
             
-            //Marshalling data will go here
+            String a = Share_Price_Value_Text_Field.getText();//Create a string to store the incoming data
+            float f = Float.parseFloat(a);// to cast the data
+            share1_2.setValue(f);
+            share1.setSharePrice(share1_2);
+
+            //Add 1st new entry to book list
+            shareList.add(share1);
+            
+            SharesList sharelist = new SharesList();
+            sharelist.setBookList(shareList);
+
+            //Marshelling code
+            try 
+            {   
+                //The JAXBContext class provides the client's entry point to the JAXB API
+                JAXBContext context = JAXBContext.newInstance(SharesList.class);
+                Marshaller m = context.createMarshaller();
+                m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);                     
+                
+                Unmarshaller um = context.createUnmarshaller();
+                SharesList sharelist2 = (SharesList) um.unmarshal(Shares_File);
+                ArrayList<Shares> unmarshlist = sharelist2.getBooksList();
+        
+                shareList.addAll(unmarshlist);
+                
+                 m.marshal(sharelist, Shares_File);
+                 
+                 System.out.println("Record has been added");
+            }
+
+            catch (javax.xml.bind.JAXBException ex) 
+            {            
+                java.util.logging.Logger.getLogger("global").log(java.util.logging.Level.SEVERE, null, ex); //NOI18N
+                Logger.getLogger(Shares_Add_Page.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
         }
     }//GEN-LAST:event_Save_Record_ButtonActionPerformed
 
