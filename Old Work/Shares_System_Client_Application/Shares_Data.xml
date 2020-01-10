@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:sharesList xmlns:ns2="de.vogella.xml.jaxb.model">
+<ShareList>
     <share>
-        <title>testy</title>
-        <companySymbol>testo</companySymbol>
-        <numOfShares>1532</numOfShares>
-        <lastShareUpdate>2020-01-01T15:17:41.411Z</lastShareUpdate>
-        <sharePrice>
-            <currency>pound</currency>
-            <value>12.5</value>
-        </sharePrice>
-    </share>
-    <share>
-        <title>comp</title>
-        <companySymbol>comp</companySymbol>
+        <title>boi</title>
+        <companySymbol>boi</companySymbol>
         <numOfShares>12345</numOfShares>
-        <lastShareUpdate>2020-01-01T15:13:24.715Z</lastShareUpdate>
+        <lastShareUpdate>2020-01-01T19:06:55.312Z</lastShareUpdate>
         <sharePrice>
             <currency>dollar</currency>
-            <value>12.3</value>
+            <value>12.43</value>
         </sharePrice>
     </share>
-</ns2:sharesList>
+    <share>
+        <title>test</title>
+        <companySymbol>test</companySymbol>
+        <numOfShares>12345</numOfShares>
+        <lastShareUpdate>2020-01-01T18:59:36.189Z</lastShareUpdate>
+        <sharePrice>
+            <currency>pound</currency>
+            <value>123.43</value>
+        </sharePrice>
+    </share>
+</ShareList>

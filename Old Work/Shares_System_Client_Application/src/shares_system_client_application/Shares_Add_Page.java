@@ -268,9 +268,9 @@ public class Shares_Add_Page extends javax.swing.JFrame
         
                 shareList.addAll(unmarshlist);
                 
-                 m.marshal(sharelist, Shares_File);
+                m.marshal(sharelist, Shares_File);
                  
-                 System.out.println("Record has been added");
+                System.out.println("Record has been added");
             }
 
             catch (javax.xml.bind.JAXBException ex) 
