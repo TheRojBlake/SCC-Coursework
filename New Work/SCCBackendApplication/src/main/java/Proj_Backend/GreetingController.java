@@ -2,10 +2,16 @@ package Proj_Backend;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.DirectoryNotEmptyException;
+import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -13,6 +19,10 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.ui.Model;
 import org.springframework.util.StreamUtils;
 
@@ -30,8 +40,7 @@ public class GreetingController
 {
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
-    File Shares_File = new File("Shares_Data.xml");
-    ArrayList<Shares> shareList = new ArrayList<Shares>();
+    
 
     @CrossOrigin(origins = "http://localhost:4200")   
     //@GetMapping is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET).
@@ -93,6 +102,10 @@ public class GreetingController
     @PostMapping(path = "/POSTtest")
     public void Postdata(@RequestParam Map<String, String> requestParams) throws Exception
     {
+        File Shares_File = new File("Shares_Data.xml");
+
+        ArrayList<Shares> shareList = new ArrayList<Shares>();
+        
         System.out.println("recived data:" + requestParams);
         
         String Company_Name = requestParams.get("company_name");
@@ -109,7 +122,6 @@ public class GreetingController
         System.out.println("Data 5: " + Share_Currency);
         System.out.println("Data 6: " + Share_Value);
         
-        
         Shares share1 = new Shares();
         SharePrice share1_2 = new SharePrice();
         share1.setCompanyName(Company_Name);
@@ -120,7 +132,8 @@ public class GreetingController
         
         DateFormat format = new SimpleDateFormat("YYYY-MM-DD", Locale.ENGLISH);
         Date date = format.parse(Last_Share_Update);
-        share1.setLastShareUpdate(date);
+        share1.setLastShareUpdate(date);   
+        System.out.println(date);
         
         share1_2.setCurrency(Share_Currency);
              
@@ -128,13 +141,11 @@ public class GreetingController
         share1_2.setValue(s_v);
         
         share1.setSharePrice(share1_2);
-
-        /* 
+        
         shareList.add(share1);
         
         SharesList sharelist = new SharesList();
-        sharelist.setBookList(shareList);
-        
+        sharelist.setBookList(shareList); 
         
         //Marshelling code
         try 
@@ -154,11 +165,69 @@ public class GreetingController
 
             System.out.println("Record has been added");
         }
-
+        
         catch (javax.xml.bind.JAXBException ex) 
         {            
             java.util.logging.Logger.getLogger("global").log(java.util.logging.Level.SEVERE, null, ex); //NOI18N
         }
-        */
+        
+        
+        try
+        { 
+            Files.deleteIfExists(Paths.get("C:\\Users\\user\\Workspaces\\Angular IDE\\SSC-Frontend\\src\\assets\\Shares_Data.xml")); 
+        }
+        
+        catch(NoSuchFileException e) 
+        { 
+            System.out.println("No such file/directory exists"); 
+        } 
+        
+        catch(DirectoryNotEmptyException e) 
+        { 
+            System.out.println("Directory is not empty."); 
+        } 
+        
+        catch(IOException e) 
+        { 
+            System.out.println("Invalid permissions."); 
+        }
+          
+        System.out.println("Deletion successful.");
+        
+        
+        File src = new File ("C:\\Users\\user\\Documents\\MEGAsync\\University (Main Copy)\\Year 3 Work\\COMP30231 - SSC\\Coursework\\New Work\\SCCBackendApplication\\Shares_Data.xml");
+        
+        File dest = new File ("C:\\Users\\user\\Workspaces\\Angular IDE\\SSC-Frontend\\src\\assets\\Shares_Data.xml");
+               
+        copy(src, dest);
+        
+        System.out.println("Copy successful");     
     }
+    
+    public static void copy(File src, File dest) throws IOException 
+    {
+        InputStream is = null;
+        OutputStream os = null;
+        try 
+        {
+            is = new FileInputStream(src);
+            os = new FileOutputStream(dest);
+
+            // buffer size 1K
+            byte[] buf = new byte[40000];
+
+            int bytesRead;
+            while ((bytesRead = is.read(buf)) > 0) 
+            {
+                os.write(buf, 0, bytesRead);
+            }
+        } 
+        
+        finally 
+        {
+            is.close();
+            os.close();
+        }
+    }
+ 
 }
