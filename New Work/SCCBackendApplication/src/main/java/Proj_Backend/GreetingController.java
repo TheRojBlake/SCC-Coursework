@@ -41,7 +41,8 @@ public class GreetingController
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
     
-
+    File Shares_File = new File("Shares_Data.xml");
+    
     @CrossOrigin(origins = "http://localhost:4200")   
     //@GetMapping is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET).
     /*
@@ -78,10 +79,10 @@ public class GreetingController
         return share1;
     }
     
+    @CrossOrigin(origins = "http://localhost:4200")   
     @PostMapping(path = "/POSTtest")
     public void Postdata(@RequestParam Map<String, String> requestParams) throws Exception
     {
-        File Shares_File = new File("Shares_Data.xml");
 
         ArrayList<Shares> shareList = new ArrayList<Shares>();
         
@@ -209,13 +210,39 @@ public class GreetingController
         }
     }
     
+    @CrossOrigin(origins = "http://localhost:4200")   
     @PostMapping(path = "/ShareDataRequest")
-    public String ShareDataRequest(@RequestParam Map<String, String> requestParams) throws Exception
+    public ArrayList<String> ShareDataRequest(@RequestParam Map<String, String> requestParams) throws Exception
     {
         System.out.println("Data recieved:" + requestParams);
+                
+        String Chosen_Data_View = requestParams.get("chosen_data_view");
         
-        String test = "recived";
+        ArrayList<String> response = new ArrayList<String>();
+                
+        if ("Highest Share".equals(Chosen_Data_View))
+        {
+            JAXBContext context = JAXBContext.newInstance(SharesList.class);
+            Unmarshaller um = context.createUnmarshaller();
+            SharesList sharelist2 = (SharesList) um.unmarshal(Shares_File);
+            ArrayList<Shares> unmarshlist = sharelist2.getBooksList();
+            ArrayList<Shares> ResponseList;
+            for (Shares share : unmarshlist)
+            {
+                System.out.println("Shares company: " + share.getCompanyName() + ". Share amount: " + share.getNumOfShares());
+            }
+        }
         
-        return test;
+        else if ("Lowest Share".equals(Chosen_Data_View))
+        {
+            System.out.println("It Works!");
+        }
+        
+        else if ("Earliest Share".equals(Chosen_Data_View))
+        {
+           response.add("Please select an option!");
+        }
+        
+        return response;
     }
 }
