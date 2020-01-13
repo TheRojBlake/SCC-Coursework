@@ -44,6 +44,7 @@ public class GreetingController
 
     @CrossOrigin(origins = "http://localhost:4200")   
     //@GetMapping is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET).
+    /*
     @GetMapping("/greeting")
     public Greeting greeting(@RequestParam(required=false, defaultValue="World") String name) 
     {
@@ -57,6 +58,7 @@ public class GreetingController
         System.out.println("==== in greeting ====");
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
+    */
     
     @RequestMapping(value = "/testapi", method = RequestMethod.GET, produces="application/xml")
     public Shares getData()
@@ -75,29 +77,6 @@ public class GreetingController
         
         return share1;
     }
- 
-    
-    @RequestMapping(value = "/sendData", method = RequestMethod.GET, produces="application/xml")
-    public void SendData(OutputStream out)
-    {
-        try (InputStream is = new FileInputStream("Shares_Data.xml")) 
-        {
-            StreamUtils.copy(is, out);
-        } 
-        catch (IOException e) 
-        {
-            e.printStackTrace();
-        }
-    }
-    
-    /*
-    //need to pass all values as strings then 
-    @PostMapping(path = "/POSTtest")
-    public void Postdata(@RequestParam("companyname") String testvar) throws Exception
-    {        
-        System.out.println("Data: " + testvar);
-    }
-    */
     
     @PostMapping(path = "/POSTtest")
     public void Postdata(@RequestParam Map<String, String> requestParams) throws Exception
@@ -229,5 +208,14 @@ public class GreetingController
             os.close();
         }
     }
- 
+    
+    @PostMapping(path = "/ShareDataRequest")
+    public String ShareDataRequest(@RequestParam Map<String, String> requestParams) throws Exception
+    {
+        System.out.println("Data recieved:" + requestParams);
+        
+        String test = "recived";
+        
+        return test;
+    }
 }
