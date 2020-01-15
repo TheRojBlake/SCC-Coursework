@@ -105,9 +105,13 @@ public class CurrencyConversionWS_V2
     }
     
     
-    //Passes codes to list and returns it. 
+    @CrossOrigin(origins = "http://localhost:4200")
+
+    //Passes codes to list and returns it.
+    @RequestMapping(value = "/currconv", method = RequestMethod.GET, produces="application/json")
     public List<String> GetCurrencyCodes() 
     {
+        System.out.println("Call works!");
         List<String> list_Of_Codes = new ArrayList(); //List of strings containing all exchange codes. 
         for (ExchangeRate exr : ExchangeRate.values()) //For each code in ExchangeRate
         {
