@@ -6,12 +6,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.DirectoryNotEmptyException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,9 +20,8 @@ import java.util.concurrent.atomic.AtomicLong;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import org.apache.tomcat.util.http.fileupload.FileUtils;
-import org.springframework.ui.Model;
-import org.springframework.util.StreamUtils;
+import java.util.List;
+import javax.jws.WebService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -212,37 +209,121 @@ public class GreetingController
     
     @CrossOrigin(origins = "http://localhost:4200")   
     @PostMapping(path = "/ShareDataRequest")
-    public ArrayList<String> ShareDataRequest(@RequestParam Map<String, String> requestParams) throws Exception
+    public ArrayList<Shares> ShareDataRequest(@RequestParam Map<String, String> requestParams) throws Exception
     {
         System.out.println("Data recieved:" + requestParams);
                 
         String Chosen_Data_View = requestParams.get("chosen_data_view");
         
-        ArrayList<String> response = new ArrayList<String>();
+        ArrayList<Shares> response = new ArrayList<Shares>();
                 
-        if ("Highest Share".equals(Chosen_Data_View))
+        if ("Highest Share Value".equals(Chosen_Data_View))
         {
             JAXBContext context = JAXBContext.newInstance(SharesList.class);
             Unmarshaller um = context.createUnmarshaller();
             SharesList sharelist2 = (SharesList) um.unmarshal(Shares_File);
             ArrayList<Shares> unmarshlist = sharelist2.getBooksList();
-            ArrayList<Shares> ResponseList;
+            
+            int record = 0;
+            
             for (Shares share : unmarshlist)
-            {
-                System.out.println("Shares company: " + share.getCompanyName() + ". Share amount: " + share.getNumOfShares());
+            {                
+                if ((share.getSharePrice().getValue()) > record)
+                {
+                    response.clear();
+                    response.add(share);
+                }
             }
         }
         
-        else if ("Lowest Share".equals(Chosen_Data_View))
+        else if ("Highest Share Amount".equals(Chosen_Data_View))
         {
-            System.out.println("It Works!");
+            JAXBContext context = JAXBContext.newInstance(SharesList.class);
+            Unmarshaller um = context.createUnmarshaller();
+            SharesList sharelist2 = (SharesList) um.unmarshal(Shares_File);
+            ArrayList<Shares> unmarshlist = sharelist2.getBooksList();
+            
+            int record = 0;
+            
+            for (Shares share : unmarshlist)
+            {                
+                if ((share.getNumOfShares()) > record)
+                {
+                    response.clear();
+                    response.add(share);
+                }
+            }
+        }
+        
+        else if ("Lowest Share Value".equals(Chosen_Data_View))
+        {
+            JAXBContext context = JAXBContext.newInstance(SharesList.class);
+            Unmarshaller um = context.createUnmarshaller();
+            SharesList sharelist2 = (SharesList) um.unmarshal(Shares_File);
+            ArrayList<Shares> unmarshlist = sharelist2.getBooksList();
+            
+            float record = 12f;
+            
+            for (Shares share : unmarshlist)
+            {
+                record = share.getSharePrice().getValue();
+                break;
+            }
+            
+            for (Shares share : unmarshlist)
+            {                
+                if ((share.getSharePrice().getValue()) <= record)
+                {
+                    response.clear();
+                    response.add(share);
+                }
+            }
+        }
+        
+        else if ("Lowest Share Amount".equals(Chosen_Data_View))
+        {
+            JAXBContext context = JAXBContext.newInstance(SharesList.class);
+            Unmarshaller um = context.createUnmarshaller();
+            SharesList sharelist2 = (SharesList) um.unmarshal(Shares_File);
+            ArrayList<Shares> unmarshlist = sharelist2.getBooksList();
+            
+            int record = 123;
+            
+            for (Shares share : unmarshlist)
+            {
+                record = share.getNumOfShares();
+                break;
+            }
+            
+            for (Shares share : unmarshlist)
+            {                
+                if ((share.getNumOfShares()) <= record)
+                {
+                    response.clear();
+                    response.add(share);
+                }
+            }
+        }
+        
+        else if ("Most Recent Share".equals(Chosen_Data_View))
+        {
+           System.out.println("Most Recent Share Works!");
         }
         
         else if ("Earliest Share".equals(Chosen_Data_View))
         {
-           response.add("Please select an option!");
+           System.out.println("Earliest Share Works!");
         }
         
         return response;
     }
+    
+    /*
+    @CrossOrigin(origins = "http://localhost:4200")   
+    @PostMapping(path = "/CurrencyConversionWS")
+    public void CurrencyConversionWS(@RequestParam Map<String, String> requestParams) throws Exception
+    {
+        
+    }
+    */
 }
