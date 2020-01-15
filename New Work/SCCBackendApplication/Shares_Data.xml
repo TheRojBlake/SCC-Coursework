@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ShareList>
     <share>
+        <title>poiuytr</title>
+        <companySymbol>qazwsx</companySymbol>
+        <numOfShares>12345</numOfShares>
+        <lastShareUpdate>1996-12-29T00:00:00Z</lastShareUpdate>
+        <sharePrice>
+            <currency>dollar</currency>
+            <value>12345.54</value>
+        </sharePrice>
+    </share>
+    <share>
         <title>newtest2</title>
         <companySymbol>trewss</companySymbol>
         <numOfShares>1234</numOfShares>
-        <lastShareUpdate>0064-01-01T00:00:00Z</lastShareUpdate>
+        <lastShareUpdate>0064-01-03T00:00:00Z</lastShareUpdate>
         <sharePrice>
             <currency>pound</currency>
             <value>12345.0</value>
@@ -24,7 +34,7 @@
         <title>test3</title>
         <companySymbol>test</companySymbol>
         <numOfShares>12345</numOfShares>
-        <lastShareUpdate>0996-12-17T00:00:00Z</lastShareUpdate>
+        <lastShareUpdate>0996-12-12T00:00:00Z</lastShareUpdate>
         <sharePrice>
             <currency>pound</currency>
             <value>12345.0</value>
@@ -34,7 +44,7 @@
         <title>test2</title>
         <companySymbol>ytre</companySymbol>
         <numOfShares>12345</numOfShares>
-        <lastShareUpdate>0705-12-15T00:00:00Z</lastShareUpdate>
+        <lastShareUpdate>0705-12-11T00:00:00Z</lastShareUpdate>
         <sharePrice>
             <currency>rew</currency>
             <value>76543.0</value>
