@@ -3,6 +3,7 @@ package Proj_Backend;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -87,10 +88,16 @@ public class CurrencyConversionWS_V2
         }
     }
     
-
-    //Gets passed two currencies and returns conversion rate of them. 
-    public double GetConversionRate(String chosen_Currency_1, String chosen_Currency_2) 
+    //Gets passed two currencies and returns conversion rate of them.
+    //First value is currency of variable, second is chosen currency
+    /*
+    @CrossOrigin(origins = "http://localhost:4200")   
+    @PostMapping(path = "/ShareDataRequest")
+    public double GetConversionRate(@RequestParam Map<String, String> requestParams) 
     {
+        System.out.println(requestParams);
+        String chosen_Currency_1;
+        String chosen_Currency_2;
         try 
         {
             double rate1 = ExchangeRate.valueOf(chosen_Currency_1).rate_In_GBP;
@@ -103,12 +110,12 @@ public class CurrencyConversionWS_V2
             return -1; //Handles errors
         }
     }
-    
+    */
     
     @CrossOrigin(origins = "http://localhost:4200")
 
     //Passes codes to list and returns it.
-    @RequestMapping(value = "/currconv", method = RequestMethod.GET, produces="application/json")
+    @RequestMapping(value = "/currconvcodes", method = RequestMethod.GET, produces="application/json")
     public List<String> GetCurrencyCodes() 
     {
         System.out.println("Call works!");

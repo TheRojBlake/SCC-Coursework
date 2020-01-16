@@ -317,13 +317,4 @@ public class GreetingController
         
         return response;
     }
-    
-    /*
-    @CrossOrigin(origins = "http://localhost:4200")   
-    @PostMapping(path = "/CurrencyConversionWS")
-    public void CurrencyConversionWS(@RequestParam Map<String, String> requestParams) throws Exception
-    {
-        
-    }
-    */
 }
