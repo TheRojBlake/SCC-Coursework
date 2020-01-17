@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ShareList>
     <share>
+        <title>Page 45</title>
+        <companySymbol>P45</companySymbol>
+        <numOfShares>12345</numOfShares>
+        <lastShareUpdate>1997-12-28T00:00:00Z</lastShareUpdate>
+        <sharePrice>
+            <currency>EUR - Euro</currency>
+            <value>483.67</value>
+        </sharePrice>
+    </share>
+    <share>
         <title>Waterstones</title>
         <companySymbol>WATER</companySymbol>
         <numOfShares>5432</numOfShares>
