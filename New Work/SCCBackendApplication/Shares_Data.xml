@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ShareList>
     <share>
+        <title>Waterstones</title>
+        <companySymbol>WATER</companySymbol>
+        <numOfShares>5432</numOfShares>
+        <lastShareUpdate>1996-12-29T00:00:00Z</lastShareUpdate>
+        <sharePrice>
+            <currency>ZAR - South African Rand</currency>
+            <value>432.87</value>
+        </sharePrice>
+    </share>
+    <share>
+        <title>Goodreads</title>
+        <companySymbol>GOOD</companySymbol>
+        <numOfShares>4673829</numOfShares>
+        <lastShareUpdate>1996-12-29T00:00:00Z</lastShareUpdate>
+        <sharePrice>
+            <currency>THB - Thai Baht</currency>
+            <value>12345.0</value>
+        </sharePrice>
+    </share>
+    <share>
         <title>qwerty</title>
         <companySymbol>QWERTY</companySymbol>
         <numOfShares>1010101</numOfShares>
@@ -8,56 +28,6 @@
         <sharePrice>
             <currency>HUF - Hungarian Forint</currency>
             <value>12345.76</value>
-        </sharePrice>
-    </share>
-    <share>
-        <title>poiuytr</title>
-        <companySymbol>qazwsx</companySymbol>
-        <numOfShares>12345</numOfShares>
-        <lastShareUpdate>1996-12-29T00:00:00Z</lastShareUpdate>
-        <sharePrice>
-            <currency>dollar</currency>
-            <value>12345.54</value>
-        </sharePrice>
-    </share>
-    <share>
-        <title>newtest2</title>
-        <companySymbol>trewss</companySymbol>
-        <numOfShares>1234</numOfShares>
-        <lastShareUpdate>0064-01-05T00:00:00Z</lastShareUpdate>
-        <sharePrice>
-            <currency>pound</currency>
-            <value>12345.0</value>
-        </sharePrice>
-    </share>
-    <share>
-        <title>newtest</title>
-        <companySymbol>qerty</companySymbol>
-        <numOfShares>12345</numOfShares>
-        <lastShareUpdate>9992-12-27T00:00:00Z</lastShareUpdate>
-        <sharePrice>
-            <currency>das</currency>
-            <value>12345.0</value>
-        </sharePrice>
-    </share>
-    <share>
-        <title>test3</title>
-        <companySymbol>test</companySymbol>
-        <numOfShares>12345</numOfShares>
-        <lastShareUpdate>0996-12-07T00:00:00Z</lastShareUpdate>
-        <sharePrice>
-            <currency>pound</currency>
-            <value>12345.0</value>
-        </sharePrice>
-    </share>
-    <share>
-        <title>test2</title>
-        <companySymbol>ytre</companySymbol>
-        <numOfShares>12345</numOfShares>
-        <lastShareUpdate>0705-12-07T00:00:00Z</lastShareUpdate>
-        <sharePrice>
-            <currency>rew</currency>
-            <value>76543.0</value>
         </sharePrice>
     </share>
 </ShareList>
