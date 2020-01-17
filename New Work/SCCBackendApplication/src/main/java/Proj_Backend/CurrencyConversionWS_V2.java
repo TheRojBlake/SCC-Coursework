@@ -118,7 +118,6 @@ public class CurrencyConversionWS_V2
     
     
     @CrossOrigin(origins = "http://localhost:4200")
-
     //Passes codes to list and returns it.
     @RequestMapping(value = "/currconvcodes", method = RequestMethod.GET, produces="application/json")
     public List<String> GetCurrencyCodes() 
