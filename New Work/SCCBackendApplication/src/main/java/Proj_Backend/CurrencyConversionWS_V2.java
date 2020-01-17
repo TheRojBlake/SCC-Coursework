@@ -2,10 +2,12 @@ package Proj_Backend;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -90,12 +92,13 @@ public class CurrencyConversionWS_V2
     
     //Gets passed two currencies and returns conversion rate of them.
     //First value is currency of variable, second is chosen currency
-    /*
+    
     @CrossOrigin(origins = "http://localhost:4200")   
-    @PostMapping(path = "/ShareDataRequest")
+    @PostMapping(path = "/CurrConvRequest")
     public double GetConversionRate(@RequestParam Map<String, String> requestParams) 
     {
         System.out.println(requestParams);
+        /*
         String chosen_Currency_1;
         String chosen_Currency_2;
         try 
@@ -109,8 +112,10 @@ public class CurrencyConversionWS_V2
         {
             return -1; //Handles errors
         }
+        */
+        return 0;
     }
-    */
+    
     
     @CrossOrigin(origins = "http://localhost:4200")
 
