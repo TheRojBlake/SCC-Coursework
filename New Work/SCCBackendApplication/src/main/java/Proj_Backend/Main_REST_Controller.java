@@ -14,7 +14,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicLong;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
@@ -75,7 +74,7 @@ public class Main_REST_Controller
             SharesList sharelist2 = (SharesList) um.unmarshal(Shares_File);
             ArrayList<Shares> unmarshlist = sharelist2.getBooksList();
 
-            shareList.addAll(unmarshlist);
+            shareList.addAll(0, unmarshlist);
 
             m.marshal(sharelist, Shares_File);
 

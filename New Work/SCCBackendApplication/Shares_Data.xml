@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ShareList>
     <share>
-        <title>Tesla Motors</title>
-        <companySymbol>TSLA</companySymbol>
+        <title>test4</title>
+        <companySymbol>test4</companySymbol>
         <numOfShares>12345</numOfShares>
-        <lastShareUpdate>71996-12-29T00:00:00Z</lastShareUpdate>
+        <lastShareUpdate>1997-07-06T00:00:00+01:00</lastShareUpdate>
         <sharePrice>
-            <currency>HUF - Hungarian Forint</currency>
-            <value>34.98</value>
+            <currency>DKK - Danish Krone</currency>
+            <value>12345.0</value>
         </sharePrice>
     </share>
     <share>
-        <title>Page 45</title>
-        <companySymbol>P45</companySymbol>
+        <title>test2</title>
+        <companySymbol>test2</companySymbol>
         <numOfShares>12345</numOfShares>
-        <lastShareUpdate>1997-12-28T00:00:00Z</lastShareUpdate>
+        <lastShareUpdate>1997-07-06T00:00:00+01:00</lastShareUpdate>
+        <sharePrice>
+            <currency>COP - Colombian Peso</currency>
+            <value>12345.0</value>
+        </sharePrice>
+    </share>
+    <share>
+        <title>test3</title>
+        <companySymbol>test3</companySymbol>
+        <numOfShares>12345</numOfShares>
+        <lastShareUpdate>1997-07-06T00:00:00+01:00</lastShareUpdate>
         <sharePrice>
             <currency>EUR - Euro</currency>
-            <value>483.67</value>
+            <value>12345.0</value>
         </sharePrice>
     </share>
     <share>
-        <title>Waterstones</title>
-        <companySymbol>WSBF</companySymbol>
-        <numOfShares>5432</numOfShares>
-        <lastShareUpdate>1996-12-29T00:00:00Z</lastShareUpdate>
+        <title>test5</title>
+        <companySymbol>test5</companySymbol>
+        <numOfShares>12345</numOfShares>
+        <lastShareUpdate>1997-07-06T00:00:00+01:00</lastShareUpdate>
         <sharePrice>
-            <currency>ZAR - South African Rand</currency>
-            <value>432.87</value>
-        </sharePrice>
-    </share>
-    <share>
-        <title>Goodreads</title>
-        <companySymbol>GOOD</companySymbol>
-        <numOfShares>4673829</numOfShares>
-        <lastShareUpdate>1996-12-29T00:00:00Z</lastShareUpdate>
-        <sharePrice>
-            <currency>THB - Thai Baht</currency>
+            <currency>DKK - Danish Krone</currency>
             <value>12345.0</value>
         </sharePrice>
     </share>
