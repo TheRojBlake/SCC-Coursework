@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ShareList>
     <share>
+        <shareId>1</shareId>
         <title>test4</title>
         <companySymbol>test4</companySymbol>
         <numOfShares>12345</numOfShares>
@@ -11,6 +12,7 @@
         </sharePrice>
     </share>
     <share>
+        <shareId>2</shareId>
         <title>test2</title>
         <companySymbol>test2</companySymbol>
         <numOfShares>12345</numOfShares>
@@ -21,6 +23,7 @@
         </sharePrice>
     </share>
     <share>
+        <shareId>3</shareId>
         <title>test3</title>
         <companySymbol>test3</companySymbol>
         <numOfShares>12345</numOfShares>
@@ -31,12 +34,35 @@
         </sharePrice>
     </share>
     <share>
+        <shareId>4</shareId>
         <title>test5</title>
         <companySymbol>test5</companySymbol>
         <numOfShares>12345</numOfShares>
         <lastShareUpdate>1997-07-06T00:00:00+01:00</lastShareUpdate>
         <sharePrice>
             <currency>DKK - Danish Krone</currency>
+            <value>12345.0</value>
+        </sharePrice>
+    </share>
+    <share>
+        <shareId>5</shareId>
+        <title>test6</title>
+        <companySymbol>test6</companySymbol>
+        <numOfShares>12345</numOfShares>
+        <lastShareUpdate>1997-07-06T00:00:00+01:00</lastShareUpdate>
+        <sharePrice>
+            <currency>TTD - Trinidad/Tobago Dollar</currency>
+            <value>12345.0</value>
+        </sharePrice>
+    </share>
+    <share>
+        <shareId>6</shareId>
+        <title>test7</title>
+        <companySymbol>test7</companySymbol>
+        <numOfShares>122</numOfShares>
+        <lastShareUpdate>0844-06-06T00:00:00Z</lastShareUpdate>
+        <sharePrice>
+            <currency>GBP - British pound</currency>
             <value>12345.0</value>
         </sharePrice>
     </share>

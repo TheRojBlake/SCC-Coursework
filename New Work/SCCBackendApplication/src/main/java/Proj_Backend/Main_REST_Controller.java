@@ -33,7 +33,17 @@ public class Main_REST_Controller
     public void Postdata(@RequestParam Map<String, String> requestParams) throws Exception
     {
         ArrayList<Shares> shareList = new ArrayList<Shares>();
-                
+        
+        //
+        
+        JAXBContext context_V2 = JAXBContext.newInstance(SharesList.class);
+        Unmarshaller um_V2 = context_V2.createUnmarshaller();
+        SharesList sharelist2_V2 = (SharesList) um_V2.unmarshal(Shares_File);
+        ArrayList<Shares> unmarshlist_V2 = sharelist2_V2.getBooksList();
+        
+        int array_size = unmarshlist_V2.size();
+        
+        int Share_Id = array_size + 1;
         String Company_Name = requestParams.get("company_name");
         String Company_Symbol = requestParams.get("company_symbol");
         String Num_Of_Shares = requestParams.get("num_of_shares");
@@ -43,6 +53,9 @@ public class Main_REST_Controller
         
         Shares share1 = new Shares();
         SharePrice share1_2 = new SharePrice();
+        
+        share1.setShareId(Share_Id);
+        
         share1.setCompanyName(Company_Name);
         share1.setCompanySymbol(Company_Symbol);
         

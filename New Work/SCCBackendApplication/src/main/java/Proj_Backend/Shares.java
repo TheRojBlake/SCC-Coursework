@@ -7,15 +7,26 @@ import javax.xml.bind.annotation.XmlType;
 
 @XmlRootElement(name = "share")
 // If you want you can define the order in which the fields are written
-@XmlType(propOrder = { "companyName", "companySymbol", "numOfShares", "lastShareUpdate", "sharePrice" }) // Order of XML schema data
+@XmlType(propOrder = { "shareId", "companyName", "companySymbol", "numOfShares", "lastShareUpdate", "sharePrice" }) // Order of XML schema data
 public class Shares 
 {
+    private int share_id;
     private String company_name;
     private String company_symbol;
     private int num_of_shares;
     private Date last_share_update;
     private SharePrice shareprice;
 
+    public int getShareId() 
+    {
+        return share_id;
+    }
+
+    public void setShareId(int share_id) 
+    {
+        this.share_id = share_id;
+    }
+    
     // If you like the variable company_name, e.g. "company_name", you can easily change this
     // company_name for your XML-Output:
     @XmlElement(name = "title")
