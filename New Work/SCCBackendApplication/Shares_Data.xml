@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <ShareList>
     <share>
+        <title>test4</title>
+        <companySymbol>test4</companySymbol>
+        <numOfShares>12345</numOfShares>
+        <lastShareUpdate>1997-07-06T00:00:00+01:00</lastShareUpdate>
+        <sharePrice>
+            <currency>AUD - Australian Dollar</currency>
+            <value>12345.0</value>
+        </sharePrice>
+    </share>
+    <share>
+        <title>test3</title>
+        <companySymbol>test3</companySymbol>
+        <numOfShares>12345</numOfShares>
+        <lastShareUpdate>2020-01-20T00:00:00Z</lastShareUpdate>
+        <sharePrice>
+            <currency>CLP - Chilean Peso</currency>
+            <value>12345.0</value>
+        </sharePrice>
+    </share>
+    <share>
+        <title>test2</title>
+        <companySymbol>test2</companySymbol>
+        <numOfShares>12345</numOfShares>
+        <lastShareUpdate>1997-07-06T00:00:00+01:00</lastShareUpdate>
+        <sharePrice>
+            <currency>UAH - Ukrainian hryvnia</currency>
+            <value>12345.0</value>
+        </sharePrice>
+    </share>
+    <share>
+        <title>test1</title>
+        <companySymbol>test1</companySymbol>
+        <numOfShares>12345</numOfShares>
+        <lastShareUpdate>1996-12-30T00:00:00Z</lastShareUpdate>
+        <sharePrice>
+            <currency>EEK - Estonian Kroon</currency>
+            <value>12345.0</value>
+        </sharePrice>
+    </share>
+    <share>
+        <title>Waterstones</title>
+        <companySymbol>WSBF</companySymbol>
+        <numOfShares>12345</numOfShares>
+        <lastShareUpdate>1996-12-29T00:00:00Z</lastShareUpdate>
+        <sharePrice>
+            <currency>COP - Colombian Peso</currency>
+            <value>12345.0</value>
+        </sharePrice>
+    </share>
+    <share>
+        <title>Waterstone</title>
+        <companySymbol>WSBF</companySymbol>
+        <numOfShares>12345</numOfShares>
+        <lastShareUpdate>1995-12-31T00:00:00Z</lastShareUpdate>
+        <sharePrice>
+            <currency>UAH - Ukrainian hryvnia</currency>
+            <value>12345.0</value>
+        </sharePrice>
+    </share>
+    <share>
+        <title>Tesla Motors</title>
+        <companySymbol>TSLA</companySymbol>
+        <numOfShares>12345</numOfShares>
+        <lastShareUpdate>71996-12-29T00:00:00Z</lastShareUpdate>
+        <sharePrice>
+            <currency>HUF - Hungarian Forint</currency>
+            <value>34.98</value>
+        </sharePrice>
+    </share>
+    <share>
         <title>Page 45</title>
         <companySymbol>P45</companySymbol>
         <numOfShares>12345</numOfShares>

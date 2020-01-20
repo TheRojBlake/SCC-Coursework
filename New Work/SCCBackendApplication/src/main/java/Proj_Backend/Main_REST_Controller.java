@@ -10,94 +10,37 @@ import java.nio.file.DirectoryNotEmptyException;
 import java.nio.file.Files;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import java.util.List;
-import javax.jws.WebService;
-
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class GreetingController 
-{
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
-    
+public class Main_REST_Controller 
+{   
     File Shares_File = new File("Shares_Data.xml");
     
+    //Web Method for adding new share data records
     @CrossOrigin(origins = "http://localhost:4200")   
-    //@GetMapping is a composed annotation that acts as a shortcut for @RequestMapping(method = RequestMethod.GET).
-    /*
-    @GetMapping("/greeting")
-    public Greeting greeting(@RequestParam(required=false, defaultValue="World") String name) 
-    {
-        System.out.println("==== in greeting ====");
-        return new Greeting(counter.incrementAndGet(), String.format(template, name));
-    }
-
-    @GetMapping("/greeting-javaconfig")
-    public Greeting greetingWithJavaconfig(@RequestParam(required=false, defaultValue="Everyone") String name) 
-    {
-        System.out.println("==== in greeting ====");
-        return new Greeting(counter.incrementAndGet(), String.format(template, name));
-    }
-    */
-    
-    @RequestMapping(value = "/testapi", method = RequestMethod.GET, produces="application/xml")
-    public Shares getData()
-    {   
-        System.out.println("==== in greeting ====");
-        Shares share1 = new Shares();
-        SharePrice share1_2 = new SharePrice();
-        share1.setCompanyName("test");
-        share1.setCompanySymbol("test");
-        share1.setNumOfShares(123);
-        Date date = new Date();
-        share1.setLastShareUpdate(date);
-        share1_2.setCurrency("dollar");
-        share1_2.setValue(12345f);
-        share1.setSharePrice(share1_2);
-        
-        return share1;
-    }
-    
-    @CrossOrigin(origins = "http://localhost:4200")   
-    @PostMapping(path = "/POSTtest")
+    @PostMapping(path = "/CreateNewShare")
     public void Postdata(@RequestParam Map<String, String> requestParams) throws Exception
     {
-
         ArrayList<Shares> shareList = new ArrayList<Shares>();
-        
-        System.out.println("recived data:" + requestParams);
-        
+                
         String Company_Name = requestParams.get("company_name");
         String Company_Symbol = requestParams.get("company_symbol");
         String Num_Of_Shares = requestParams.get("num_of_shares");
         String Last_Share_Update = requestParams.get("last_share_update");
         String Share_Currency = requestParams.get("currency");
         String Share_Value = requestParams.get("share_value");
-        
-        System.out.println("Data 1: " + Company_Name);
-        System.out.println("Data 2: " + Company_Symbol);
-        System.out.println("Data 3: " + Num_Of_Shares);
-        System.out.println("Data 4: " + Last_Share_Update);
-        System.out.println("Data 5: " + Share_Currency);
-        System.out.println("Data 6: " + Share_Value);
         
         Shares share1 = new Shares();
         SharePrice share1_2 = new SharePrice();
@@ -107,20 +50,16 @@ public class GreetingController
 	int nos = Integer.parseInt(Num_Of_Shares);			        
         share1.setNumOfShares(nos);
         
-        DateFormat format = new SimpleDateFormat("YYYY-MM-DD", Locale.ENGLISH);
-        Date date = format.parse(Last_Share_Update);
-        share1.setLastShareUpdate(date);   
-        System.out.println(date);
+        Date date = new SimpleDateFormat("yyyy-MM-dd").parse(Last_Share_Update);  
+        share1.setLastShareUpdate(date);
         
-        share1_2.setCurrency(Share_Currency);
-             
+        share1_2.setCurrency(Share_Currency);           
+        
         float s_v = Float.parseFloat(Share_Value);
         share1_2.setValue(s_v);
         
-        share1.setSharePrice(share1_2);
-        
-        shareList.add(share1);
-        
+        share1.setSharePrice(share1_2);      
+        shareList.add(share1);     
         SharesList sharelist = new SharesList();
         sharelist.setBookList(shareList); 
         
@@ -170,17 +109,15 @@ public class GreetingController
         }
           
         System.out.println("Deletion successful.");
-        
-        
-        File src = new File ("C:\\Users\\user\\Documents\\MEGAsync\\University (Main Copy)\\Year 3 Work\\COMP30231 - SSC\\Coursework\\New Work\\SCCBackendApplication\\Shares_Data.xml");
-        
+              
+        File src = new File ("C:\\Users\\user\\Documents\\MEGAsync\\University (Main Copy)\\Year 3 Work\\COMP30231 - SSC\\Coursework\\New Work\\SCCBackendApplication\\Shares_Data.xml");   
         File dest = new File ("C:\\Users\\user\\Workspaces\\Angular IDE\\SSC-Frontend\\src\\assets\\Shares_Data.xml");
                
-        copy(src, dest);
-        
+        copy(src, dest);       
         System.out.println("Copy successful");     
     }
     
+    //Method for copying up-to-date info to front-end folder
     public static void copy(File src, File dest) throws IOException 
     {
         InputStream is = null;
@@ -207,6 +144,7 @@ public class GreetingController
         }
     }
     
+    //Web Service for passing specific data record to front-end
     @CrossOrigin(origins = "http://localhost:4200")   
     @PostMapping(path = "/ShareDataRequest")
     public ArrayList<Shares> ShareDataRequest(@RequestParam Map<String, String> requestParams) throws Exception
@@ -217,6 +155,7 @@ public class GreetingController
         
         ArrayList<Shares> response = new ArrayList<Shares>();
                 
+        //Returns record with highest listed share value
         if ("Highest Share Value".equals(Chosen_Data_View))
         {
             JAXBContext context = JAXBContext.newInstance(SharesList.class);
@@ -236,6 +175,7 @@ public class GreetingController
             }
         }
         
+        //Returns record with highest listed share amount
         else if ("Highest Share Amount".equals(Chosen_Data_View))
         {
             JAXBContext context = JAXBContext.newInstance(SharesList.class);
@@ -255,6 +195,7 @@ public class GreetingController
             }
         }
         
+        //Returns share with lowest listed share value
         else if ("Lowest Share Value".equals(Chosen_Data_View))
         {
             JAXBContext context = JAXBContext.newInstance(SharesList.class);
@@ -280,6 +221,7 @@ public class GreetingController
             }
         }
         
+        //Returns record with lowest listed share amount. 
         else if ("Lowest Share Amount".equals(Chosen_Data_View))
         {
             JAXBContext context = JAXBContext.newInstance(SharesList.class);
@@ -303,16 +245,6 @@ public class GreetingController
                     response.add(share);
                 }
             }
-        }
-        
-        else if ("Most Recent Share".equals(Chosen_Data_View))
-        {
-           System.out.println("Most Recent Share Works!");
-        }
-        
-        else if ("Earliest Share".equals(Chosen_Data_View))
-        {
-           System.out.println("Earliest Share Works!");
         }
         
         return response;

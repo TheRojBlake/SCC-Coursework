@@ -1,9 +1,9 @@
-Sun Jan 05 16:24:47 GMT 2020 : Apache Derby Network Server - 10.8.1.2 - (1095077) started and ready to accept connections on port 1527
+Sun Jan 19 20:43:24 GMT 2020 : Apache Derby Network Server - 10.8.1.2 - (1095077) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Sun Jan 05 21:17:17 GMT 2020: Shutting down Derby engine
-Sun Jan 05 21:17:17 GMT 2020 : Unexpected exception:
+Sun Jan 19 20:45:36 GMT 2020: Shutting down Derby engine
+Sun Jan 19 20:45:36 GMT 2020 : Unexpected exception:
  {0}
-Sun Jan 05 21:17:17 GMT 2020 : access denied ("java.sql.SQLPermission" "deregisterDriver")
+Sun Jan 19 20:45:36 GMT 2020 : access denied ("java.sql.SQLPermission" "deregisterDriver")
 java.security.AccessControlException: access denied ("java.sql.SQLPermission" "deregisterDriver")
 	at java.security.AccessControlContext.checkPermission(AccessControlContext.java:472)
 	at java.security.AccessController.checkPermission(AccessController.java:884)
@@ -20,4 +20,4 @@ java.security.AccessControlException: access denied ("java.sql.SQLPermission" "d
 	at org.apache.derby.impl.drda.NetworkServerControlImpl.blockingStart(Unknown Source)
 	at org.apache.derby.impl.drda.NetworkServerControlImpl.executeWork(Unknown Source)
 	at org.apache.derby.drda.NetworkServerControl.main(Unknown Source)
-Sun Jan 05 21:17:17 GMT 2020 : Apache Derby Network Server - 10.8.1.2 - (1095077) shutdown
+Sun Jan 19 20:45:36 GMT 2020 : Apache Derby Network Server - 10.8.1.2 - (1095077) shutdown
