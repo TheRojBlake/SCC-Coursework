@@ -261,4 +261,88 @@ public class Main_REST_Controller
         
         return response;
     }
+    
+    //Web Method for adding new share data records
+    @CrossOrigin(origins = "http://localhost:4200")   
+    @PostMapping(path = "/DeleteShareRecord")
+    public void DeleteShareRecord(@RequestParam Map<String, String> requestParams) throws Exception
+    {
+        System.out.println(requestParams);
+        
+        String temporary_id = requestParams.get("share_id");
+        int Removed_String_Id = Integer.parseInt(temporary_id);
+        
+        boolean share_id_update = false;
+        
+        JAXBContext context = JAXBContext.newInstance(SharesList.class);
+        Unmarshaller um = context.createUnmarshaller();
+        SharesList sharelist2 = (SharesList) um.unmarshal(Shares_File);
+        ArrayList<Shares> unmarshlist = sharelist2.getBooksList();
+        for (Shares share : unmarshlist)
+        {
+            if (Removed_String_Id == share.getShareId())
+            {
+                int share_index = unmarshlist.indexOf(share);
+                unmarshlist.remove(share_index);
+                Marshaller m = context.createMarshaller();
+                m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);                     
+
+                SharesList sharelist = new SharesList();
+                sharelist.setBookList(unmarshlist); 
+                
+                m.marshal(sharelist, Shares_File);
+                
+                share_id_update = true;
+                
+                break;
+            }
+        }
+        
+        for (Shares share : unmarshlist)
+        {
+            int listedshareid = share.getShareId();
+            int shareindex = unmarshlist.indexOf(share);
+            
+            if (listedshareid != (shareindex + 1))
+            {
+                share.setShareId(shareindex + 1);
+            }
+        }
+        
+        Marshaller m = context.createMarshaller();
+        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);                     
+
+        SharesList sharelist = new SharesList();
+        sharelist.setBookList(unmarshlist); 
+
+        m.marshal(sharelist, Shares_File);
+        
+        try
+        { 
+            Files.deleteIfExists(Paths.get("C:\\Users\\user\\Workspaces\\Angular IDE\\SSC-Frontend\\src\\assets\\Shares_Data.xml")); 
+        }
+        
+        catch(NoSuchFileException e) 
+        { 
+            System.out.println("No such file/directory exists"); 
+        } 
+        
+        catch(DirectoryNotEmptyException e) 
+        { 
+            System.out.println("Directory is not empty."); 
+        } 
+        
+        catch(IOException e) 
+        { 
+            System.out.println("Invalid permissions."); 
+        }
+          
+        System.out.println("Deletion successful.");
+              
+        File src = new File ("C:\\Users\\user\\Documents\\MEGAsync\\University (Main Copy)\\Year 3 Work\\COMP30231 - SSC\\Coursework\\New Work\\SCCBackendApplication\\Shares_Data.xml");   
+        File dest = new File ("C:\\Users\\user\\Workspaces\\Angular IDE\\SSC-Frontend\\src\\assets\\Shares_Data.xml");
+               
+        copy(src, dest);       
+        System.out.println("Copy successful");
+    }
 }
