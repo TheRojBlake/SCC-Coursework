@@ -2,8 +2,8 @@
 <ShareList>
     <share>
         <shareId>1</shareId>
-        <title>test4</title>
-        <companySymbol>test4</companySymbol>
+        <title>Waterstones</title>
+        <companySymbol>WATER</companySymbol>
         <numOfShares>12345</numOfShares>
         <lastShareUpdate>1997-07-06T00:00:00+01:00</lastShareUpdate>
         <sharePrice>
@@ -13,46 +13,13 @@
     </share>
     <share>
         <shareId>2</shareId>
-        <title>test2</title>
-        <companySymbol>test2</companySymbol>
-        <numOfShares>12345</numOfShares>
-        <lastShareUpdate>1997-07-06T00:00:00+01:00</lastShareUpdate>
+        <title>t1</title>
+        <companySymbol>t1</companySymbol>
+        <numOfShares>22345</numOfShares>
+        <lastShareUpdate>0997-07-06T00:00:00Z</lastShareUpdate>
         <sharePrice>
-            <currency>COP - Colombian Peso</currency>
-            <value>12345.0</value>
-        </sharePrice>
-    </share>
-    <share>
-        <shareId>3</shareId>
-        <title>test3</title>
-        <companySymbol>test3</companySymbol>
-        <numOfShares>12345</numOfShares>
-        <lastShareUpdate>1997-07-06T00:00:00+01:00</lastShareUpdate>
-        <sharePrice>
-            <currency>EUR - Euro</currency>
-            <value>12345.0</value>
-        </sharePrice>
-    </share>
-    <share>
-        <shareId>4</shareId>
-        <title>test6</title>
-        <companySymbol>test6</companySymbol>
-        <numOfShares>12345</numOfShares>
-        <lastShareUpdate>1997-07-06T00:00:00+01:00</lastShareUpdate>
-        <sharePrice>
-            <currency>TTD - Trinidad/Tobago Dollar</currency>
-            <value>12345.0</value>
-        </sharePrice>
-    </share>
-    <share>
-        <shareId>5</shareId>
-        <title>test7</title>
-        <companySymbol>test7</companySymbol>
-        <numOfShares>122</numOfShares>
-        <lastShareUpdate>0844-06-02T00:00:00Z</lastShareUpdate>
-        <sharePrice>
-            <currency>GBP - British pound</currency>
-            <value>12345.0</value>
+            <currency>HKD - Hong Kong Dollar</currency>
+            <value>2345.0</value>
         </sharePrice>
     </share>
 </ShareList>
