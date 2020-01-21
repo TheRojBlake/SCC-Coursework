@@ -1,7 +1,5 @@
 package Proj_Backend;
 
-
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "shareprice")

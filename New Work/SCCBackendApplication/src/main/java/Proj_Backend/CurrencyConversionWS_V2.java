@@ -15,6 +15,7 @@ public class CurrencyConversionWS_V2
 {
     //An enum is a special "class" that represents a group of constants 
     //(unchangeable variables, like final variables).
+    //List of different exchange rates and amounts
     public enum ExchangeRate 
     {
         AED ("UAE Dirham", 0.168577),
@@ -92,7 +93,6 @@ public class CurrencyConversionWS_V2
     
     //Gets passed two currencies and returns conversion rate of them.
     //First value is currency of variable, second is chosen currency
-    
     @CrossOrigin(origins = "http://localhost:4200")   
     @PostMapping(path = "/CurrConvRequest")
     public double GetConversionRate(@RequestParam Map<String, String> requestParams) 
@@ -133,9 +133,8 @@ public class CurrencyConversionWS_V2
         }  
     }
     
-    
+    //Passes codes to list and returns it to frontend
     @CrossOrigin(origins = "http://localhost:4200")
-    //Passes codes to list and returns it.
     @RequestMapping(value = "/currconvcodes", method = RequestMethod.GET, produces="application/json")
     public List<String> GetCurrencyCodes() 
     {

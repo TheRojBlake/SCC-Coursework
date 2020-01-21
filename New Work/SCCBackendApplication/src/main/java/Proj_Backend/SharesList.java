@@ -9,8 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "ShareList")
 public class SharesList 
 {
-
-    // XmLElementWrapper generates a wrapper element around XML representation
+    //XMLElementWrapper generates a wrapper element around XML representation
     //@XmlElementWrapper(name = "bookList")
     
     // XmlElement sets the name of the entities
