@@ -339,4 +339,70 @@ public class Main_REST_Controller
         copy(src, dest);       
         System.out.println("Copy successful");
     }
+    
+    @CrossOrigin(origins = "http://localhost:4200")   
+    @PostMapping(path = "/AddSharesRecord")
+    public void AddSharesRecord(@RequestParam Map<String, String> requestParams) throws Exception
+    {
+        String temporary_id = requestParams.get("share_id");
+        int Selected_Share_Id = Integer.parseInt(temporary_id);
+        
+        String temporary_share_amount = requestParams.get("share_amount");
+        int share_buy_amount = Integer.parseInt(temporary_share_amount);
+        
+        System.out.println("Selected Id:" + Selected_Share_Id);
+        System.out.println("Share buy amount:" + share_buy_amount);
+        
+        JAXBContext context = JAXBContext.newInstance(SharesList.class);
+        Unmarshaller um = context.createUnmarshaller();
+        SharesList sharelist2 = (SharesList) um.unmarshal(Shares_File);
+        ArrayList<Shares> unmarshlist = sharelist2.getBooksList();
+        for (Shares share : unmarshlist)
+        {
+            if (Selected_Share_Id == share.getShareId())
+            {
+                int numofshares = share.getNumOfShares();
+                int newshareamount = numofshares - share_buy_amount;
+                share.setNumOfShares(newshareamount);
+                
+                Marshaller m = context.createMarshaller();
+                m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);                     
+
+                SharesList sharelist = new SharesList();
+                sharelist.setBookList(unmarshlist); 
+                
+                m.marshal(sharelist, Shares_File);
+                                
+                break;
+            }
+        }
+        
+        try
+        { 
+            Files.deleteIfExists(Paths.get("C:\\Users\\user\\Workspaces\\Angular IDE\\SCC-Frontend\\src\\assets\\Shares_Data.xml")); 
+        }
+        
+        catch(NoSuchFileException e) 
+        { 
+            System.out.println("No such file/directory exists"); 
+        } 
+        
+        catch(DirectoryNotEmptyException e) 
+        { 
+            System.out.println("Directory is not empty."); 
+        } 
+        
+        catch(IOException e) 
+        { 
+            System.out.println("Invalid permissions."); 
+        }
+          
+        System.out.println("Deletion successful.");
+              
+        File src = new File ("C:\\Users\\user\\Documents\\MEGAsync\\University (Main Copy)\\Year 3 Work\\COMP30231 - SCC\\Coursework\\New Work\\SCCBackendApplication\\Shares_Data.xml");   
+        File dest = new File ("C:\\Users\\user\\Workspaces\\Angular IDE\\SCC-Frontend\\src\\assets\\Shares_Data.xml");
+               
+        copy(src, dest);       
+        System.out.println("Copy successful");
+    }
 }
