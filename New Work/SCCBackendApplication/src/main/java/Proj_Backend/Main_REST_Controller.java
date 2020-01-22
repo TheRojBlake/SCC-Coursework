@@ -363,7 +363,22 @@ public class Main_REST_Controller
             {
                 int numofshares = share.getNumOfShares();
                 int newshareamount = numofshares - share_buy_amount;
-                share.setNumOfShares(newshareamount);
+                if (newshareamount <= 0)
+                {
+                    share.setNumOfShares(0);
+                }
+                
+                else if (share.getNumOfShares() == 0)
+                {
+                    share.setNumOfShares(0);
+                }
+                
+                else 
+                {
+                    share.setNumOfShares(newshareamount);
+                }
+                
+                //share.setNumOfShares(newshareamount);
                 
                 Marshaller m = context.createMarshaller();
                 m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);                     
@@ -376,6 +391,14 @@ public class Main_REST_Controller
                 break;
             }
         }
+        
+        Marshaller m = context.createMarshaller();
+        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);                     
+
+        SharesList sharelist = new SharesList();
+        sharelist.setBookList(unmarshlist); 
+                
+        m.marshal(sharelist, Shares_File);
         
         try
         { 
