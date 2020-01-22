@@ -16,10 +16,21 @@
         <title>t1</title>
         <companySymbol>t1</companySymbol>
         <numOfShares>22345</numOfShares>
-        <lastShareUpdate>0997-07-06T00:00:00Z</lastShareUpdate>
+        <lastShareUpdate>0997-07-01T00:00:00Z</lastShareUpdate>
         <sharePrice>
             <currency>HKD - Hong Kong Dollar</currency>
             <value>2345.0</value>
+        </sharePrice>
+    </share>
+    <share>
+        <shareId>3</shareId>
+        <title>Page 45</title>
+        <companySymbol>P45</companySymbol>
+        <numOfShares>12345</numOfShares>
+        <lastShareUpdate>1997-07-06T00:00:00+01:00</lastShareUpdate>
+        <sharePrice>
+            <currency>EUR - Euro</currency>
+            <value>12345.0</value>
         </sharePrice>
     </share>
 </ShareList>
