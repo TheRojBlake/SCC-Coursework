@@ -96,34 +96,21 @@ public class CurrencyConversionWS_V2
     @CrossOrigin(origins = "http://localhost:4200")   
     @PostMapping(path = "/CurrConvRequest")
     public double GetConversionRate(@RequestParam Map<String, String> requestParams) 
-    {
-        System.out.println("Recieved data: " + requestParams);
-        
+    {        
         String chosen_Currency_1 = requestParams.get("current_currency");
         String chosen_Currency_2 = requestParams.get("change_currency");
         
         String[] _arr = chosen_Currency_1.split("\\s");
         chosen_Currency_1 = _arr[0];
-        
-        System.out.println("New chosen_Currency_1: " + chosen_Currency_1);
-        
+                
         String[] _arr_2 = chosen_Currency_2.split("\\s");
         chosen_Currency_2 = _arr_2[0];
-        
-        System.out.println("New chosen_Currency_2: " + chosen_Currency_2);
-        
+                
         try 
-        {
-            System.out.println("Also gets here");
-            
+        {            
             double rate1 = ExchangeRate.valueOf(chosen_Currency_1).rate_In_GBP;
-            System.out.println("Rate 1: " + rate1);
             
             double rate2 = ExchangeRate.valueOf(chosen_Currency_2).rate_In_GBP;
-            System.out.println("Rate 2: " + rate2);
-            
-            double rate3 = rate1/rate2;
-            System.out.println("Rate 3: " + rate3);
             return rate1/rate2;
         }
         
@@ -138,7 +125,6 @@ public class CurrencyConversionWS_V2
     @RequestMapping(value = "/currconvcodes", method = RequestMethod.GET, produces="application/json")
     public List<String> GetCurrencyCodes() 
     {
-        System.out.println("Call works!");
         List<String> list_Of_Codes = new ArrayList(); //List of strings containing all exchange codes. 
         for (ExchangeRate exr : ExchangeRate.values()) //For each code in ExchangeRate
         {

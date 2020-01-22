@@ -2,35 +2,57 @@
 <ShareList>
     <share>
         <shareId>1</shareId>
-        <title>Waterstones</title>
-        <companySymbol>WATER</companySymbol>
-        <numOfShares>12345</numOfShares>
-        <lastShareUpdate>1997-07-06T00:00:00+01:00</lastShareUpdate>
+        <title>Nottingham Trent</title>
+        <companySymbol>NTU</companySymbol>
+        <numOfShares>543</numOfShares>
+        <lastShareUpdate>2020-01-22T00:00:00Z</lastShareUpdate>
         <sharePrice>
-            <currency>DKK - Danish Krone</currency>
-            <value>12345.0</value>
+            <currency>EGP - Egypt Pounds</currency>
+            <value>123.65</value>
         </sharePrice>
     </share>
     <share>
         <shareId>2</shareId>
-        <title>t1</title>
-        <companySymbol>t1</companySymbol>
-        <numOfShares>22345</numOfShares>
-        <lastShareUpdate>0997-07-01T00:00:00Z</lastShareUpdate>
+        <title>Waterstones</title>
+        <companySymbol>WATER</companySymbol>
+        <numOfShares>754</numOfShares>
+        <lastShareUpdate>2020-01-08T00:00:00Z</lastShareUpdate>
         <sharePrice>
-            <currency>HKD - Hong Kong Dollar</currency>
-            <value>2345.0</value>
+            <currency>ILS - Israeli New Shekel</currency>
+            <value>16436.0</value>
         </sharePrice>
     </share>
     <share>
         <shareId>3</shareId>
         <title>Page 45</title>
         <companySymbol>P45</companySymbol>
-        <numOfShares>12345</numOfShares>
-        <lastShareUpdate>1997-07-06T00:00:00+01:00</lastShareUpdate>
+        <numOfShares>5475</numOfShares>
+        <lastShareUpdate>2020-01-10T00:00:00Z</lastShareUpdate>
         <sharePrice>
             <currency>EUR - Euro</currency>
-            <value>12345.0</value>
+            <value>175.76</value>
+        </sharePrice>
+    </share>
+    <share>
+        <shareId>4</shareId>
+        <title>Tesla Motors</title>
+        <companySymbol>TSLA</companySymbol>
+        <numOfShares>6543</numOfShares>
+        <lastShareUpdate>2020-01-05T00:00:00Z</lastShareUpdate>
+        <sharePrice>
+            <currency>ILS - Israeli New Shekel</currency>
+            <value>172.0</value>
+        </sharePrice>
+    </share>
+    <share>
+        <shareId>5</shareId>
+        <title>ASDA</title>
+        <companySymbol>ASDA</companySymbol>
+        <numOfShares>9974</numOfShares>
+        <lastShareUpdate>2020-01-20T00:00:00Z</lastShareUpdate>
+        <sharePrice>
+            <currency>CHF - Swiss Franc</currency>
+            <value>9943.0</value>
         </sharePrice>
     </share>
 </ShareList>

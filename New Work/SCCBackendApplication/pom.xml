@@ -43,5 +43,5 @@
             </plugin>
         </plugins>
     </build>
-
+    <name>SCCBackendApplication</name>
 </project>

@@ -33,9 +33,7 @@ public class Main_REST_Controller
     public void Postdata(@RequestParam Map<String, String> requestParams) throws Exception
     {
         ArrayList<Shares> shareList = new ArrayList<Shares>();
-        
-        //
-        
+
         JAXBContext context_V2 = JAXBContext.newInstance(SharesList.class);
         Unmarshaller um_V2 = context_V2.createUnmarshaller();
         SharesList sharelist2_V2 = (SharesList) um_V2.unmarshal(Shares_File);
@@ -122,8 +120,8 @@ public class Main_REST_Controller
           
         System.out.println("Deletion successful.");
               
-        File src = new File ("C:\\Users\\user\\Documents\\MEGAsync\\University (Main Copy)\\Year 3 Work\\COMP30231 - SSC\\Coursework\\New Work\\SCCBackendApplication\\Shares_Data.xml");   
-        File dest = new File ("C:\\Users\\user\\Workspaces\\Angular IDE\\SSC-Frontend\\src\\assets\\Shares_Data.xml");
+        File src = new File ("C:\\Users\\user\\Documents\\MEGAsync\\University (Main Copy)\\Year 3 Work\\COMP30231 - SCC\\Coursework\\New Work\\SCCBackendApplication\\Shares_Data.xml");   
+        File dest = new File ("C:\\Users\\user\\Workspaces\\Angular IDE\\SCC-Frontend\\src\\assets\\Shares_Data.xml");
                
         copy(src, dest);       
         System.out.println("Copy successful");     
@@ -160,9 +158,7 @@ public class Main_REST_Controller
     @CrossOrigin(origins = "http://localhost:4200")   
     @PostMapping(path = "/ShareDataRequest")
     public ArrayList<Shares> ShareDataRequest(@RequestParam Map<String, String> requestParams) throws Exception
-    {
-        System.out.println("Data recieved:" + requestParams);
-                
+    {                
         String Chosen_Data_View = requestParams.get("chosen_data_view");
         
         ArrayList<Shares> response = new ArrayList<Shares>();
@@ -266,9 +262,7 @@ public class Main_REST_Controller
     @CrossOrigin(origins = "http://localhost:4200")   
     @PostMapping(path = "/DeleteShareRecord")
     public void DeleteShareRecord(@RequestParam Map<String, String> requestParams) throws Exception
-    {
-        System.out.println(requestParams);
-        
+    {        
         String temporary_id = requestParams.get("share_id");
         int Removed_String_Id = Integer.parseInt(temporary_id);
         
@@ -319,7 +313,7 @@ public class Main_REST_Controller
         
         try
         { 
-            Files.deleteIfExists(Paths.get("C:\\Users\\user\\Workspaces\\Angular IDE\\SSC-Frontend\\src\\assets\\Shares_Data.xml")); 
+            Files.deleteIfExists(Paths.get("C:\\Users\\user\\Workspaces\\Angular IDE\\SCC-Frontend\\src\\assets\\Shares_Data.xml")); 
         }
         
         catch(NoSuchFileException e) 
@@ -339,8 +333,8 @@ public class Main_REST_Controller
           
         System.out.println("Deletion successful.");
               
-        File src = new File ("C:\\Users\\user\\Documents\\MEGAsync\\University (Main Copy)\\Year 3 Work\\COMP30231 - SSC\\Coursework\\New Work\\SCCBackendApplication\\Shares_Data.xml");   
-        File dest = new File ("C:\\Users\\user\\Workspaces\\Angular IDE\\SSC-Frontend\\src\\assets\\Shares_Data.xml");
+        File src = new File ("C:\\Users\\user\\Documents\\MEGAsync\\University (Main Copy)\\Year 3 Work\\COMP30231 - SCC\\Coursework\\New Work\\SCCBackendApplication\\Shares_Data.xml");   
+        File dest = new File ("C:\\Users\\user\\Workspaces\\Angular IDE\\SCC-Frontend\\src\\assets\\Shares_Data.xml");
                
         copy(src, dest);       
         System.out.println("Copy successful");
